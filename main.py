@@ -7,7 +7,6 @@
 import os
 import pathlib as pl
 import json
-import rich as rh
 import prompt_toolkit as pt
 from scenes import main_scenes as ms
 from scenes import cmd
@@ -27,6 +26,5 @@ def main():
     ms.titel()
     initial_prep()
     input()
-    
 if __name__ == "__main__":
     main()

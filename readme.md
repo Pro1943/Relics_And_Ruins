@@ -28,7 +28,7 @@ Install `Python 3.14` from the official link and set up your IDE.
 ### Step 1
 Clone this repo using:
 ```bash
-git clone hhttps://github.com/Pro1943/Relics_And_Ruins
+git clone https://github.com/Pro1943/Relics_And_Ruins
 ```    
 Then open the folder in your IDE.
 

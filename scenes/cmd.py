@@ -93,7 +93,7 @@ def console_config(target_width, target_height):
         python_exe = get_short_path(sys.executable)
         
         command_string = f"{python_exe} {script_path}"
-        command_list = ["conhost.exe", "cmd.exe", "/k", command_string]
+        command_list = ["conhost.exe", "cmd.exe", "/c", command_string]
         
         subprocess.Popen(command_list, creationflags=subprocess.CREATE_NEW_CONSOLE, env=current_env)
         sys.exit(0)

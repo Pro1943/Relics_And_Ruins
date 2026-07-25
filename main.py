@@ -10,6 +10,7 @@ import json
 import prompt_toolkit as pt
 from scenes import main_scenes as ms
 from scenes import cmd
+import time
 folder_path=pl.Path("Relics-and-Ruins")
 config = {
     "Initialized": True,
@@ -25,6 +26,6 @@ def main():
     cmd.console_config(756,400)
     ms.titel()
     initial_prep()
-    input()
+    time.sleep(10)
 if __name__ == "__main__":
     main()

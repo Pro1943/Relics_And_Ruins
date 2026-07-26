@@ -92,8 +92,10 @@ def console_config(target_width, target_height):
         script_path = get_short_path(raw_script_path)
         python_exe = get_short_path(sys.executable)
         
-        command_string = f"{python_exe} {script_path}"
-        command_list = ["conhost.exe", "cmd.exe", "/c", command_string]
+        system32 = os.path.join(os.environ["SystemRoot"], "System32")
+        conhost_exe = os.path.join(system32, "conhost.exe")
+        
+        command_list = [conhost_exe, python_exe, script_path]
         
         subprocess.Popen(command_list, creationflags=subprocess.CREATE_NEW_CONSOLE, env=current_env)
         sys.exit(0)
@@ -135,3 +137,6 @@ def console_config(target_width, target_height):
         window_height = csbi.srWindow.Bottom - csbi.srWindow.Top + 1
         new_buffer_size = COORD(window_width, window_height)
         kernel32.SetConsoleScreenBufferSize(h_output, new_buffer_size)
+
+def clean_screen():
+    os.system('cls' if os.name == 'nt' else 'clear')

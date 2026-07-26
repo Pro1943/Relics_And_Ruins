@@ -26,6 +26,9 @@ def main():
     cmd.console_config(756,400)
     ms.titel()
     initial_prep()
-    time.sleep(10)
+    cmd.clean_screen()
+    ms.victory()
+    cmd.clean_screen()
+    ms.lost()
 if __name__ == "__main__":
     main()

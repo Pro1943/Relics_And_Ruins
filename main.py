@@ -31,7 +31,7 @@ def initial_prep():
         with open("Relics-and-Ruins/save.json", "w", encoding="utf-8") as s:
             json.dump(initial, s, indent=4)
         sl.save("Initialized", True)
-        return "Inital Files Created"
+        return "Initial Files Created"
 def main():
     cmd.console_config(756,400)
     ms.titel()

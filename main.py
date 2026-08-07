@@ -5,7 +5,6 @@
 #    ███  ▀███ ▀█▄▄▄ ██ ██▄ ▀████ ▄▄▄█▀   ▀█▄██ ██ ██ ▀████   ███  ▀███ ▀██▀█ ██▄ ██ ██ ▄▄▄█▀ 
 
 import time
-import json
 import pathlib as pl
 import prompt_toolkit as pt
 from scenes import cmd

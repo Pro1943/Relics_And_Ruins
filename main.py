@@ -19,6 +19,7 @@ def initial_prep():
     sl.save("assets/player/player.json", "Player_hp", 100)
     sl.save("assets/player/player.json", "Player_defence", 10)
     sl.save("assets/player/player.json", "Player_attack", 10)
+    sl.save("assets/player/player.json", "Player_XP", 0)
     ei.save_enemy_index()
 
 def main():

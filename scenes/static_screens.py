@@ -18,5 +18,3 @@ def static_titel():
     full_text = "\n".join(lines)
     plain_text = Text(full_text, style="bold #ad2df7")
     console.print(Align.center(plain_text))
-
-static_titel()

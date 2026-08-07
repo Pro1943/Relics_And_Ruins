@@ -2,3 +2,5 @@ Relics-and-Ruins/
 scenes/__pycache__/*
 functions/__pycache__/*
 logic/__pycache__/*
+characters/__pycache__/*
+characters/enemies/__pycache__/*

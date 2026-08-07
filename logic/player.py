@@ -1,5 +1,6 @@
 from functions import save_load as sl
-
+from fighting import damage
+player_hp = sl.load("Player_hp")
 def player():
-    player_hp = sl.load("Player_hp")
     return player_hp
+    

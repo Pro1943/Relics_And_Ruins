@@ -32,6 +32,8 @@ def initial_prep():
             json.dump(initial, s, indent=4)
         sl.save("Initialized", True)
         sl.save("Player_hp", 100)
+        with open("Relics-and-Ruins/assets/enemy.json", "w", encoding="utf-8") as e:
+            json.dump(enemy_index, e, indent=4)
         return "Initial Files Created"
 def main():
     cmd.console_config(756,400)

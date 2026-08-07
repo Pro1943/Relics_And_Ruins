@@ -15,15 +15,6 @@ from scenes import static_screens as ss
 from functions import save_load as sl
 from charecters.enemies import enemy_index as ei
 
-folder_path=pl.Path("Relics-and-Ruins")
-config = {
-    "Initialized": True,
-    "Version": "0.01.DEV"
-}
-initial = {
-
-}
-
 def initial_prep():
     sl.save("assets/config.json", "Initialized", True)
     sl.save("assets/config.json", "Version", "0.01.DEV")

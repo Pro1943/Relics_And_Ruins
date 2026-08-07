@@ -69,3 +69,7 @@ enemy_index = {
     "description": "A reanimated corpse that craves human flesh."
     }
 }
+
+def save_enemy_index():
+    with open("Relics-and-Ruins/assets/enemy_index.json", "w", encoding="utf-8") as f:
+        json.dump(enemy_index, f, indent=4)

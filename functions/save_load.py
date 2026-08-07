@@ -1,16 +1,34 @@
 import json
+from pathlib import Path
 
-def save(class_name, value):
-    data = None
-    with open("Relics-and-Ruins/save.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
+ROOT = Path("Relics-and-Ruins")
 
-    data[class_name] = value
-    with open("Relics-and-Ruins/save.json", "w", encoding="utf-8") as s:
-        json.dump(data, s, indent=4)
 
-def load(class_name):
-    data = None
-    with open("Relics-and-Ruins/save.json", "r", encoding="utf-8") as f:
-        data = json.load(f)
-    return data[class_name]
+def read_json(file_name):
+    path = ROOT / file_name
+
+    if not path.exists():
+        return {}
+
+    with open(path, "r", encoding="utf-8") as f:
+        return json.load(f)
+
+
+def write_json(file_name, data):
+    path = ROOT / file_name
+
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
+
+
+def save(file_name, key, value):
+    data = read_json(file_name)
+    data[key] = value
+    write_json(file_name, data)
+
+
+def load(file_name, key, default=None):
+    data = read_json(file_name)
+    return data.get(key, default)

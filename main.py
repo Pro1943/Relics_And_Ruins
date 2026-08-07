@@ -11,7 +11,9 @@ import pathlib as pl
 import prompt_toolkit as pt
 from scenes import cmd
 from scenes import main_scenes as ms
+from scenes import static_screens as ss
 from functions import save_load as sl
+from charecters.enemies import enemy_index as ei
 
 folder_path=pl.Path("Relics-and-Ruins")
 config = {
@@ -21,24 +23,24 @@ config = {
 initial = {
 
 }
+
 def initial_prep():
-    (folder_path/"assets").mkdir(parents=True, exist_ok=True)
-    with open("Relics-and-Ruins/assets/config.json", "w", encoding="utf-8") as f:
-        json.dump(config, f, indent=4)
-    try:
-        return sl.load("Initialized")  
-    except FileNotFoundError:
-        with open("Relics-and-Ruins/save.json", "w", encoding="utf-8") as s:
-            json.dump(initial, s, indent=4)
-        sl.save("Initialized", True)
-        sl.save("Player_hp", 100)
-        with open("Relics-and-Ruins/assets/enemy.json", "w", encoding="utf-8") as e:
-            json.dump(enemy_index, e, indent=4)
-        return "Initial Files Created"
+    sl.save("assets/config.json", "Initialized", True)
+    sl.save("assets/config.json", "Version", "0.01.DEV")
+    sl.save("assets/player/player.json", "Player_hp", 100)
+    sl.save("assets/player/player.json", "Player_defence", 10)
+    sl.save("assets/player/player.json", "Player_attack", 10)
+    ei.save_enemy_index()
+
 def main():
-    cmd.console_config(756,400)
-    ms.titel()
-    print(initial_prep())
-    time.sleep(3)
+    if sl.load("assets/config.json", "Initialized") is None:
+        initial_prep()
+    cmd.console_config(800, 600)
+    ms.title()
+    cmd.clean_screen()
+    ss.static_title()
+    ms.center_print("Welcome to Relics and Ruins!", "bold #ad2df7")
+    time.sleep(5)
+
 if __name__ == "__main__":
     main()

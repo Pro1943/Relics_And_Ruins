@@ -1,6 +1,13 @@
 from functions import save_load as sl
-from fighting import damage
-player_hp = sl.load("Player_hp")
-def player():
-    return player_hp
-    
+
+def get_player_hp():
+    return sl.load("assets/player/player.json", "Player_hp")
+
+def get_player_defence():
+    return sl.load("assets/player/player.json", "Player_defence")
+
+def get_player_attack():
+    return sl.load("assets/player/player.json", "Player_attack")
+
+def get_player_xp():
+    return sl.load("assets/player/player.json", "Player_XP")

@@ -12,6 +12,8 @@ from scenes import main_scenes as ms
 from scenes import static_screens as ss
 from functions import save_load as sl
 from charecters.enemies import enemy_index as ei
+from logic import player as plr
+from logic import fighting as f
 
 def initial_prep():
     sl.save("assets/config.json", "Initialized", True)
@@ -31,6 +33,8 @@ def main():
     ss.static_title()
     ms.center_print("Welcome to Relics and Ruins!", "bold #ad2df7")
     time.sleep(5)
-
+    cmd.clean_screen()
+    f.fight("001")
+    time.sleep(5)
 if __name__ == "__main__":
     main()
